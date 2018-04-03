@@ -1,0 +1,49 @@
+m=16, n=16, k=16, blocksize=16, iters=1.
+Support double
+GEMM has 0 ERR
+DOUBLE GEMM TEST:
+cl_time = 0.000022 s.
+cpu-time = 0.000014 s.
+speedup = 0.621775
+m=64, n=64, k=64, blocksize=16, iters=1.
+Support double
+GEMM has 0 ERR
+DOUBLE GEMM TEST:
+cl_time = 0.000030 s.
+cpu-time = 0.001205 s.
+speedup = 40.152116
+m=256, n=256, k=256, blocksize=16, iters=1.
+Support double
+GEMM has 0 ERR
+DOUBLE GEMM TEST:
+cl_time = 0.000486 s.
+cpu-time = 0.066400 s.
+speedup = 136.567171
+m=512, n=512, k=512, blocksize=16, iters=1.
+Support double
+GEMM has 0 ERR
+DOUBLE GEMM TEST:
+cl_time = 0.004049 s.
+cpu-time = 0.534332 s.
+speedup = 131.980241
+m=1024, n=1024, k=1024, blocksize=16, iters=1.
+Support double
+GEMM has 0 ERR
+DOUBLE GEMM TEST:
+cl_time = 0.029444 s.
+cpu-time = 4.357333 s.
+speedup = 147.986973
+m=2048, n=2048, k=2048, blocksize=16, iters=1.
+Support double
+GEMM has 0 ERR
+DOUBLE GEMM TEST:
+cl_time = 0.225207 s.
+cpu-time = 134.673392 s.
+speedup = 597.998313
+m=4096, n=4096, k=4096, blocksize=16, iters=1.
+Support double
+GEMM has 0 ERR
+DOUBLE GEMM TEST:
+cl_time = 1.502998 s.
+cpu-time = 1109.628089 s.
+speedup = 738.276404

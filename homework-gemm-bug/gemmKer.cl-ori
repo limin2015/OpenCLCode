@@ -1,0 +1,75 @@
+/**
+C[m][n] = A[m][k] *B[k][n]
+kernel function define.
+*/
+
+#if 0
+#ifdef FP_64
+	#pragma OPENCL_EXTENTION cl_khr_fp64:enable
+#endif
+#endif
+
+#include "util.h"
+
+//without local mem.
+__kernel void gemm_cl_v1(__global const TYPE* A, 
+					     __global const TYPE* B, 
+						 __global TYPE* C, 
+					     const int M, 
+					     const int N, 
+					     const int K){
+
+	int i = get_global_id(0); 
+	int j = get_global_id(1); 
+
+	int k;
+	TYPE temp;
+
+	if(i == 0 && j == 0)
+		printf("A[0]=%lf, B[0]=%lf\n", A[0], B[0]);
+	
+	if(i < M && j < N){
+		temp = 0.;
+		for(k=0; k<K; k++){
+			temp += A[i + k * M] * B[k + j * K];
+		}
+		C[i + j * M] = temp;
+	}
+}
+
+	//use global mem.
+__kernel void gemm_cl_v2(__global const TYPE* A, 
+						 __global const TYPE* B, 
+						 __global TYPE* C, 
+						 const int M, 
+						 const int N, 
+						 const int K){
+
+	const int row = get_local_id(0);
+	const int col = get_local_id(1);
+	const int g_row = get_group_id(0) * get_local_size(0) + row;//global row index. ;
+	const int g_col = get_group_id(1) * get_local_size(1) + col;
+
+	__local TYPE Asub[TILE_DIM][TILE_DIM];
+	__local TYPE Bsub[TILE_DIM][TILE_DIM];
+
+	TYPE acc = 0.;
+
+	const int numTiles = K/TILE_DIM;
+	
+	for(int t = 0; t<numTiles; t++){
+		
+		const int tileRow = t * TILE_DIM + row;
+		const int tileCol = t * TILE_DIM + col;
+
+		Asub[col][row] = A[tileCol * M + g_row];
+		Bsub[col][row] = B[g_col * K + tileRow];
+		
+		barrier(CLK_LOCAL_MEM_FENCE);
+
+		for(int k=0; k<TILE_DIM; k++)
+			acc += Asub[k][row] * Bsub[col][k];
+		barrier(CLK_LOCAL_MEM_FENCE);
+	}
+	C[g_col * M + g_row] = acc;
+}

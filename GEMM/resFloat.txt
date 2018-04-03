@@ -1,0 +1,52 @@
+m=16, n=16, k=16, blocksize=16, iters=1.
+maxWorkItemPerGroup: 1024
+GEMM has 0 ERR
+FLOAT GEMM TEST:
+cl_time = 0.000023 s.
+cpu-time = 0.000015 s.
+speedup = 0.651926
+m=64, n=64, k=64, blocksize=16, iters=1.
+maxWorkItemPerGroup: 1024
+GEMM has 0 ERR
+FLOAT GEMM TEST:
+cl_time = 0.000025 s.
+cpu-time = 0.001012 s.
+speedup = 39.824010
+m=256, n=256, k=256, blocksize=16, iters=1.
+maxWorkItemPerGroup: 1024
+GEMM has 0 ERR
+FLOAT GEMM TEST:
+cl_time = 0.000093 s.
+cpu-time = 0.068774 s.
+speedup = 741.866423
+m=512, n=512, k=512, blocksize=16, iters=1.
+maxWorkItemPerGroup: 1024
+GEMM has 0 ERR
+FLOAT GEMM TEST:
+cl_time = 0.000732 s.
+cpu-time = 0.545965 s.
+speedup = 745.755961
+m=1024, n=1024, k=1024, blocksize=16, iters=1.
+maxWorkItemPerGroup: 1024
+GEMM has 0 ERR
+FLOAT GEMM TEST:
+cl_time = 0.004882 s.
+cpu-time = 4.377449 s.
+speedup = 896.712481
+m=2048, n=2048, k=2048, blocksize=16, iters=1.
+maxWorkItemPerGroup: 1024
+GEMM has 0 ERR
+FLOAT GEMM TEST:
+cl_time = 0.036562 s.
+cpu-time = 65.773387 s.
+speedup = 1798.977673
+m=4096, n=4096, k=4096, blocksize=16, iters=1.
+maxWorkItemPerGroup: 1024
+GEMM has 0 ERR
+FLOAT GEMM TEST:
+cl_time = 0.250090 s.
+cpu-time = 1186.023959 s.
+speedup = 4742.386452
+m=8192, n=8192, k=8192, blocksize=16, iters=1.
+maxWorkItemPerGroup: 1024
+Error when execute kernel!

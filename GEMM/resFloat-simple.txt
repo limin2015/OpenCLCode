@@ -1,0 +1,42 @@
+m=16, n=16, k=16, blocksize=16, iters=1.
+maxWorkItemPerGroup: 1024
+GEMM has 0 ERR
+FLOAT GEMM TEST:
+cl_time = 0.000022 s.
+cpu-time = 0.000015 s.
+speedup = 0.667691
+m=64, n=64, k=64, blocksize=16, iters=1.
+maxWorkItemPerGroup: 1024
+GEMM has 0 ERR
+FLOAT GEMM TEST:
+cl_time = 0.000035 s.
+cpu-time = 0.000995 s.
+speedup = 28.735003
+m=256, n=256, k=256, blocksize=16, iters=1.
+maxWorkItemPerGroup: 1024
+GEMM has 0 ERR
+FLOAT GEMM TEST:
+cl_time = 0.000742 s.
+cpu-time = 0.067303 s.
+speedup = 90.675445
+m=512, n=512, k=512, blocksize=16, iters=1.
+maxWorkItemPerGroup: 1024
+GEMM has 0 ERR
+FLOAT GEMM TEST:
+cl_time = 0.005710 s.
+cpu-time = 0.534488 s.
+speedup = 93.610581
+m=1024, n=1024, k=1024, blocksize=16, iters=1.
+maxWorkItemPerGroup: 1024
+GEMM has 0 ERR
+FLOAT GEMM TEST:
+cl_time = 0.046923 s.
+cpu-time = 4.250200 s.
+speedup = 90.577667
+m=2048, n=2048, k=2048, blocksize=16, iters=1.
+maxWorkItemPerGroup: 1024
+GEMM has 0 ERR
+FLOAT GEMM TEST:
+cl_time = 0.325313 s.
+cpu-time = 57.313922 s.
+speedup = 176.180858
